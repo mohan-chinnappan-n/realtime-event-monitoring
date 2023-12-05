@@ -1,3 +1,19 @@
+# How to get LoginEvent using Streaming and Storage
+
+## Topics
+- [Event Setup](#setup)
+- [Query Event Setup](#qsetup)
+- [Subscribe to Stream](#sub)
+  - [Install Plugin](#install)
+- [Query from Storage](#query)
+
+<a name='setup'></a>
+
+## Setup
+![event setup](img/eventManager.png)
+- [Refer Salesforce Notes book](https://mohan-chinnappan-n5.github.io/sfbooks/sfdevnotes/monitoring/realtime-event-monitoring.html)
+
+<a name='qsetup'></a>
 
 ## Query RealTimeEventSettings (Tooling)
 ```sql
@@ -167,6 +183,91 @@ FROM RealTimeEventSettings
   ]
 }
 ```
+
+<a name='sub'></a>
+
+- [Refer: Subscribing to Salesforce Streaming API](https://github.com/mohan-chinnappan-n/cli-dx/blob/master/streaming/streaming.md)
+
+## Listen to the event: LoginEventStream 
+
+
+<a name='install'>
+
+### Plugin Install 
+- Requires 0.0.358 version of the plugin
+- sfdx plugins:update 
+- sfdx-mohanc-plugins@0.0.0.358
+- [How to install the plugin](https://mohan-chinnappan-n.github.io/dx/plugins.html#/1)
+
+---
+
+ 
+
+```
+sfdx mohanc:streaming:sub  -u mohan.chinnappan.n.sel2@gmail.com -t '/event/LoginEventStream'      
+```
+```json
+{
+    "schema": "VEb7_SnuXFTJ7g1PLe_aYw",
+    "payload": {
+        "EventDate": "2023-12-05T12:00:57.000Z",
+        "AuthServiceId": null,
+        "CountryIso": null,
+        "Platform": "Mac OSX",
+        "EvaluationTime": 0,
+        "CipherSuite": "ECDHE-RSA-AES256-GCM-SHA384",
+        "PostalCode": null,
+        "ClientVersion": "N/A",
+        "LoginGeoId": "04F8W00008x1xIP",
+        "LoginUrl": "d8w000004lymuuac-dev-ed.develop.my.salesforce.com",
+        "LoginHistoryId": "0Ya8W0000CMszZ3SQJ",
+        "LoginSubType": null,
+        "CreatedById": "0058W00000CGsFSQA1",
+        "SessionKey": null,
+        "ApiType": "N/A",
+        "AuthMethodReference": null,
+        "LoginType": "Application",
+        "PolicyOutcome": null,
+        "Status": "Success",
+        "AdditionalInfo": "{}",
+        "ApiVersion": "N/A",
+        "EventIdentifier": "8a1b3218-6405-451b-be62-e05e507fbac0",
+        "RelatedEventIdentifier": null,
+        "LoginLatitude": null,
+        "City": null,
+        "Subdivision": null,
+        "SourceIp": "Salesforce.com IP",
+        "Username": "mohan.chinnappan.n.sel2@gmail.com",
+        "UserId": "0058W00000BAlWSQA1",
+        "CreatedDate": "2023-12-05T12:01:05.558Z",
+        "Country": null,
+        "LoginLongitude": null,
+        "TlsProtocol": "TLS 1.2",
+        "LoginKey": "35wFTPL4jVZ0ne73",
+        "Application": "Browser",
+        "UserType": "Standard",
+        "PolicyId": null,
+        "HttpMethod": "POST",
+        "SessionLevel": "STANDARD",
+        "Browser": "Chrome 119"
+    },
+    "event": {
+        "EventUuid": "59ebff93-6ac2-42ee-b1a6-3ded4d03e4e4",
+        "replayId": 7711181
+    }
+}
+```
+
+## Query using SOQL
+
+### Demo
+![Demo of Query](img/loginEvent.webm.gif)
+
+## ERD of LoginEvent
+
+![ERD LightningUriEvent](img/loginEvent.svg)
+
+
 ## Listen to the event: LoginEventStream
 - Has EPT and PageUrl 
 
