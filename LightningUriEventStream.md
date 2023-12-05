@@ -4,6 +4,7 @@
 - [Event Setup](#setup)
 - [Query Event Setup](#qsetup)
 - [Subscribe to Stream](#sub)
+  - [Install Plugin](#install)
 - [Query from Storage](#query)
 
 <a name='setup'></a>
@@ -188,6 +189,18 @@ FROM RealTimeEventSettings
 - [Refer: Subscribing to Salesforce Streaming API](https://github.com/mohan-chinnappan-n/cli-dx/blob/master/streaming/streaming.md)
 
 ## Listen to the event: LightningUriEventStream
+
+
+<a name='install'>
+
+### Plugin Install 
+- Requires 0.0.358 version of the plugin
+- sfdx plugins:update 
+- sfdx-mohanc-plugins@0.0.0.358
+- [How to install the plugin](https://mohan-chinnappan-n.github.io/dx/plugins.html#/1)
+
+---
+
 - Has EPT and PageUrl 
 
 ```
