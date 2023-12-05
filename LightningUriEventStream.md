@@ -1,3 +1,18 @@
+# How to get EPT in Real time via Streaming and Storage
+
+## Topics
+- [Event Setup](#setup)
+- [Query Event Setup](#qsetup)
+- [Subscribe to Stream](#sub)
+- [Query from Storage](#query)
+
+<a name='setup'></a>
+
+## Setup
+![event setup](img/eventManager.png)
+- [Refer Salesforce Notes book](https://mohan-chinnappan-n5.github.io/sfbooks/sfdevnotes/monitoring/realtime-event-monitoring.html)
+
+<a name='qsetup'></a>
 
 ## Query RealTimeEventSettings (Tooling)
 ```sql
@@ -167,6 +182,11 @@ FROM RealTimeEventSettings
   ]
 }
 ```
+
+<a name='sub'></a>
+
+- [Refer: Subscribing to Salesforce Streaming API](https://github.com/mohan-chinnappan-n/cli-dx/blob/master/streaming/streaming.md)
+
 ## Listen to the event: LightningUriEventStream
 - Has EPT and PageUrl 
 
@@ -223,3 +243,12 @@ sfdx mohanc:streaming:sub  -u mohan.chinnappan.n.sel2@gmail.com -t '/event/Light
     }
 }
 ```
+
+## Query using SOQL
+
+### Demo
+![Demo of Query](img/realtime-em-ept.webm.gif)
+
+## ERD of LightningUriEvent
+
+![ERD LightningUriEvent](img/lightningUriEvent.svg)
